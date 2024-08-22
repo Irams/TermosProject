@@ -53,6 +53,12 @@ const TermosProvider = ({children}) => {
         setProducto(productoActualizar)
         setModal(!modal)
     }
+
+    const handleEliminarProductoPedido = id => {
+        const pedidoActualizado= pedido.filter(producto => producto.id !== id)
+        setPedido(pedidoActualizado)
+        toast.success('Producto eliminado del pedido')
+    }
     
     return(
         <TermosContext.Provider 
@@ -69,7 +75,8 @@ const TermosProvider = ({children}) => {
                 precio2,
                 handleSetPrecioPersonalizado,
                 handleAgregarPedido,
-                handleEditarCantidad
+                handleEditarCantidad,
+                handleEliminarProductoPedido
             }}
         
         >{children}</TermosContext.Provider>

@@ -3,7 +3,7 @@ import { formatearDinero } from "../helpers";
 
 export default function ResumenProducto({producto}) {
 
-    const {precio2, handleEditarCantidad} = useTermos()
+    const {precio2, handleEditarCantidad, handleEliminarProductoPedido} = useTermos()
     const { id, nombre, color, cantidad, precio, precioPerson, personalizado } = producto
     
     console.log(producto);
@@ -42,6 +42,7 @@ export default function ResumenProducto({producto}) {
           <button
             type="button"
             className="bg-red-700 p-2 text-white rounded-md font-bold uppercase shadow-md text-center"
+            onClick={() => handleEliminarProductoPedido(id)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
